@@ -38,13 +38,19 @@ void TestExpression()
 	for(int i = 0; i < str.size(); i++)
 	{
 		char c = str[i];
+		std::cout << c <<endl;
 		if(c >= '0' && c <='9')
 		{
-
+			int count = stackOp.Count();
+			if(count > 0)
+			{
+				int value;
+				stackOp.Top(value);
+				char op = static_cast<char>(value);
+			}
 		}
 		else if( c == '+' || c == '-' || c == '*' || c == '/' )
 		{
-
 		}
 		else
 		{
