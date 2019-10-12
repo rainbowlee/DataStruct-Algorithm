@@ -1,10 +1,12 @@
+#ifndef _LINKEDNODE_H_
+#define _LINKEDNODE_H_
 #pragma once
 #include <string>
 using namespace std;
 
-typedef struct nodestruct
+struct Node
 {
-	nodestruct()
+	Node()
 	{
 		mData = 0;
 		mNext = nullptr;
@@ -12,9 +14,23 @@ typedef struct nodestruct
 	}
 
 	int				mData;
-	nodestruct*		mNext;
-	nodestruct*		mPre;
-} Node;
+	Node*		mNext;
+	Node*		mPre;
+};
+
+//typedef struct Node
+//{
+//	Node()
+//	{
+//		mData = 0;
+//		mNext = nullptr;
+//		mPre = nullptr;
+//	}
+//
+//	int				mData;
+//	Node*		mNext;
+//	Node*		mPre;
+//} Node;
 
 
 class LinkedNode
@@ -36,6 +52,29 @@ public:
 		else
 		{
 			newNode->mNext = head;
+			head = newNode;//漏写代码
+		}
+		return head;
+	}
+
+	//双向链表
+	static Node* AddHeadNodeD(Node* head, int value)
+	{
+		Node* newNode = new Node();
+		newNode->mData = value;
+
+		return AddHeadNodeD(head, newNode);
+	}
+
+	//双向链表
+	static Node* AddHeadNodeD(Node* head, Node* newNode)
+	{
+		if(head == nullptr)
+			head = newNode;
+		else
+		{
+			newNode->mNext = head;
+			head->mPre = newNode;
 			head = newNode;//漏写代码
 		}
 		return head;
@@ -65,6 +104,33 @@ public:
 		newNode->mData = value;
 
 		return AddTailNode(head, newNode);
+	}
+
+	static Node* AddTailNodeD(Node* head, Node* newNode)
+	{
+		if(head == nullptr)
+			head = newNode;
+		else
+		{
+			Node* iterNode = head;
+			while (iterNode->mNext != nullptr)
+			{
+				iterNode = iterNode->mNext;
+			}
+			iterNode->mNext = newNode;
+			newNode->mPre = iterNode;
+		}
+
+		return head;
+	}
+
+
+	static Node* AddTailNodeD(Node* head, int value)
+	{
+		Node* newNode = new Node();
+		newNode->mData = value;
+
+		return AddTailNodeD(head, newNode);
 	}
 
 	//返回头
@@ -475,7 +541,5 @@ public:
 		return str;
 	}
 };
-
-
-
+#endif
 

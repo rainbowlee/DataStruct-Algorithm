@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedNode.h" />
+    <ClInclude Include="Stack.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Test.h" />
@@ -88,6 +89,8 @@
   <ItemGroup>
     <ClCompile Include="al.cpp" />
     <ClCompile Include="LinkedNode.cpp" />
+    <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="StackTest.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="test222.cpp" />
     <ClCompile Include="TestLinkedNode.cpp" />

@@ -30,6 +30,9 @@
     <ClInclude Include="Test.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +48,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="test222.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StackTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
