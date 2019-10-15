@@ -33,6 +33,12 @@
     <ClInclude Include="Stack.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Sorting.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -54,6 +60,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="StackTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Sorting.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SortTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
