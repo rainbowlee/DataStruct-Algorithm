@@ -39,6 +39,9 @@
     <ClInclude Include="Sorting.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="Searching.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -72,6 +75,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="X.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Searching.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

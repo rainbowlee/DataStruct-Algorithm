@@ -39,6 +39,26 @@ void TestSortQuick()
 	Sort::QuickSort(arr);
 }
 
+void TestSortBucket()
+{
+	vector<int> arr;
+	int arrtem[10] = {12,4,2,7,9,8,30,5,12,3};
+	for(int i = 0; i < 10; i++)
+		arr.push_back(arrtem[i]);
+
+	Sort::BucketSort(arr);
+}
+
+void TestSortCount()
+{
+	vector<int> arr;
+	int arrtem[10] = {12,4,2,7,9,8,30,5,12,3};
+	for(int i = 0; i < 10; i++)
+		arr.push_back(arrtem[i]);
+
+	vector<int> paiming = Sort::CountSort(arr);
+}
+
 class TESTSort
 {
 public:
@@ -55,6 +75,8 @@ public:
 		FuncMain::Instance()->AddMethod(TestSortSelect);
 		FuncMain::Instance()->AddMethod(TestSortMerge);
 		FuncMain::Instance()->AddMethod(TestSortQuick);
+		FuncMain::Instance()->AddMethod(TestSortCount);
+		
 	}
 };
 

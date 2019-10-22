@@ -279,3 +279,105 @@ int Sort::QuickPartition(vector<int>& arr, int from ,int to)
 	arr[i] = value;
 	return i;
 }
+
+
+void Sort::BucketSort(vector<int>& arr)
+{
+	vector<vector<int>*> buckets;
+	for( int i = 0; i < 10; i++)
+	{
+		buckets.push_back(new vector<int>());
+	}
+
+	for(size_t i = 0; i < arr.size(); i++)
+	{
+		int num = arr[i];
+		int bucketIndex= 0;
+		if(num > 9)
+		{
+			bucketIndex = num/10;
+		}
+
+		buckets[bucketIndex]->push_back(num);
+	}
+
+	for(int i = 0; i < 10; i++)
+	{
+		vector<int>* pOneBucket = buckets[i];
+		for( size_t j = 0; j < pOneBucket->size(); ++j)
+		{
+			int jvalue = (*pOneBucket)[j];
+			int k = j -1;
+			for(; k >= 0;--k)
+			{
+				if((*pOneBucket)[k] > jvalue)
+				{
+					(*pOneBucket)[k+1] = (*pOneBucket)[k];
+				}
+				else
+					break;
+			}
+
+			k++;
+			(*pOneBucket)[k] = jvalue;
+		}
+	}
+
+	//合并是个vector到结果里
+	int count = 0;
+	for(int i = 0; i < 10; i++)
+	{
+		vector<int>* pOneBucket = buckets[i];
+		for( size_t j = 0; j < pOneBucket->size(); ++j)
+		{
+			arr[count++] = (*pOneBucket)[j];
+		}
+	}
+}
+
+vector<int> Sort::CountSort(vector<int>& arr)
+{
+	int max = arr[0];
+	for(size_t i = 1; i < arr.size(); i++)
+		if(arr[i] > max)
+			max = arr[i];
+
+	vector<int> counts;
+	vector<int> rcounts;
+	//计算排名
+	vector<int> paiming;
+	for(size_t i = 0; i < arr.size(); ++i)
+	{
+		paiming.push_back(0);
+	}
+
+
+	for(int i = 0; i < max+1; i++)
+	{
+		counts.push_back(0);
+		rcounts.push_back(0);
+	}
+
+	for(size_t i = 0; i < arr.size(); i++)
+		counts[arr[i]]++;
+
+	//计算排名
+	for(int i = max-1; i >=0; --i)
+	{
+		counts[i] = counts[i+1] + counts[i];
+	}
+
+
+	for(size_t i = 0; i < arr.size(); i++)
+	{
+		paiming[i] = counts[arr[i]];
+		counts[arr[i]]--;
+	}
+
+	return paiming;
+}
+
+void Sort::BaseSort(vector<int>& arr)
+{
+
+}

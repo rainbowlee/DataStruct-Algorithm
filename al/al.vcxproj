@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClInclude Include="LinkedNode.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="Searching.h" />
     <ClInclude Include="Sorting.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="stdafx.h" />
@@ -92,6 +93,8 @@
     <ClCompile Include="al.cpp" />
     <ClCompile Include="LinkedNode.cpp" />
     <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="Searching.cpp" />
+    <ClCompile Include="SearchTest.cpp" />
     <ClCompile Include="Sorting.cpp" />
     <ClCompile Include="SortTest.cpp" />
     <ClCompile Include="Stack.cpp" />
