@@ -23,12 +23,124 @@ static void GetMinMaxIndex(vector<int>& datas, int pos, int& min, int& max)
 	}
 }
 
-int Search::SearchBinaryXunHuanYouXu(vector<int> datas, int findData)
+ int Search::SearchBinary(vector<int>& datas, int findData)
+ {
+	int begin = 0;
+	int end = datas.size()-1;
+
+	while (begin<=end)
+	{
+		int mid = begin + ((end-begin) >> 1);
+		if(datas[mid]==findData)
+			return mid;
+
+		if(datas[mid] < findData)
+			begin = mid + 1;
+		else
+			end = mid - 1;
+	}
+
+	return -1;
+ }
+
+ //存在相等情况
+ int Search::SearchBinaryFirst(vector<int>& datas, int findData)
+ {
+	 int begin = 0;
+	 int end = datas.size()-1;
+
+	 while (begin<=end)
+	 {
+		 int mid = begin + ((end-begin) >> 1);
+		 if(datas[mid] == findData)
+		 {
+			 if(mid == 0 || datas[mid-1] != findData) return mid;
+			 end = mid - 1;
+		 }
+		 else if(datas[mid] < findData)
+			 begin = mid + 1;
+		 else
+			 end = mid - 1;
+	 }
+
+	 return -1;
+ }
+
+ //存在相等情况
+ int Search::SearchBinaryLast(vector<int>& datas, int findData)
+ {
+	 int begin = 0;
+	 int end = datas.size()-1;
+
+	 while (begin<=end)
+	 {
+		 int mid = begin + ((end-begin) >> 1);
+		 if(datas[mid] == findData)
+		 {
+			 if(mid == datas.size()-1 || datas[mid+1] != findData) return mid;
+			 begin = mid + 1;
+		 }
+		 else if(datas[mid] < findData)
+			 begin = mid + 1;
+		 else
+			 end = mid - 1;
+	 }
+
+	 return -1;
+ }
+
+ //存在相等情况
+ int Search::SearchBinaryFirstGE(vector<int>& datas, int findData)
+ {
+	 int begin = 0;
+	 int end = datas.size()-1;
+
+	 while (begin<=end)
+	 {
+		 int mid = begin + ((end-begin) >> 1);
+		 if(datas[mid] >= findData)
+		 {
+			 if(mid == 0 || datas[mid-1] < findData) return mid;
+			 end = mid - 1;
+		 }
+		 else if(datas[mid] < findData)
+			 begin = mid + 1;
+		 else
+			 end = mid - 1;
+	 }
+
+	 return -1;
+ }
+
+ //存在相等情况
+ int Search::SearchBinaryLastLE(vector<int>& datas, int findData)
+ {
+	 int begin = 0;
+	 int end = datas.size()-1;
+
+	 while (begin<=end)
+	 {
+		 int mid = begin + ((end-begin) >> 1);
+		 if(datas[mid] <= findData)
+		 {
+			 if(mid == datas.size()-1 || datas[mid+1] > findData) return mid;
+			 begin = mid + 1;
+		 }
+		 else if(datas[mid] < findData)
+			 begin = mid + 1;
+		 else
+			 end = mid - 1;
+	 }
+
+	 return -1;
+ }
+
+int Search::SearchBinaryXunHuanYouXu(vector<int>& datas, int findData)
 {
 	int begin = 0;
 	int end = datas.size()-1;
 
-	while (begin<end)
+	while (begin<=end)
 	{
 		int mid = begin + (end- begin)/2;
 
@@ -51,6 +163,10 @@ int Search::SearchBinaryXunHuanYouXu(vector<int> datas, int findData)
 		if(datas[midmin] <= findData && findData <= datas[midmax])
 		{
 			int mid = midmin + (midmax- midmin)/2;
+			
+			if(datas[mid] == findData)
+				return mid;
+
 			if(datas[midmin] == findData)
 				return midmin;
 
@@ -76,13 +192,17 @@ int Search::SearchBinaryXunHuanYouXu(vector<int> datas, int findData)
 		GetMinMaxIndex(datas, begin, beginmin, beginmax);
 		if(datas[beginmin] <= findData && findData <= datas[beginmax])
 		{
+			int mid = beginmin + (beginmax- beginmin)/2;
+
+			if(datas[mid] == findData)
+				return mid;
+
 			if(datas[beginmin] == findData)
 				return beginmin;
 
 			if(datas[beginmax] == findData)
 				return beginmax;
 
-			int mid = beginmin + (beginmax- beginmin)/2;
 			if(datas[beginmin] < findData)
 			{
 				begin= mid+1;
@@ -101,13 +221,16 @@ int Search::SearchBinaryXunHuanYouXu(vector<int> datas, int findData)
 		GetMinMaxIndex(datas, end, endmin, endmax);
 		if(datas[endmin] <= findData && findData <= datas[endmax])
 		{
+			int mid = endmin + (endmax- endmin)/2;
+			if(datas[mid] == findData)
+				return mid;
+
 			if(datas[endmin] == findData)
 				return endmin;
 
 			if(datas[endmax] == findData)
 				return endmax;
 
-			int mid = endmin + (endmax- endmin)/2;
 			if(datas[endmin] < findData)
 			{
 				begin= mid+1;
@@ -136,4 +259,30 @@ int Search::SearchBinaryXunHuanYouXu(vector<int> datas, int findData)
 	}
 
 	return -1;
+}
+
+
+int SearchBinaryXunHuanYouXu2_R(vector<int>& datas, int findData, int frompos, int topos)
+{
+	if(frompos>topos)
+		return -1;
+	int mid = frompos + (topos-frompos) >> 1;
+	if(datas[mid] == findData)
+		return mid;
+	
+	if(frompos>=topos)
+		return -1;
+
+	int index = SearchBinaryXunHuanYouXu2_R(datas, findData, frompos, mid-1);
+	if(index == -1)
+	{
+		index = SearchBinaryXunHuanYouXu2_R(datas, findData, mid+1, topos);
+	}
+ 	return -1;
+}
+
+int Search::SearchBinaryXunHuanYouXu2(vector<int>& datas, int findData)
+{
+	
+	return SearchBinaryXunHuanYouXu2_R(datas, findData, 0, datas.size()-1);
 }
