@@ -33,6 +33,11 @@ void Test2()
 	std::shared_ptr<int> sp(new int(10));
 	std::weak_ptr<int> wp(sp);
 	wp = sp;
+	// 检查 weak_ptr 内部对象的合法性.
+	if (std::shared_ptr<int> sp = wp.lock())
+	{
+		cout << " weak ptr lock"  << endl;
+	}
 	//printf("%d\n", wp.use_count()); // 1
 	wp.reset();
 	//printf("%d\n", wp); // 0
@@ -40,6 +45,7 @@ void Test2()
 	// 检查 weak_ptr 内部对象的合法性.
 	if (std::shared_ptr<int> sp = wp.lock())
 	{
+		cout << " weak ptr lock erro" << endl;
 	}
 }
 
