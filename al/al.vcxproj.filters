@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="interview">
+      <UniqueIdentifier>{34a78440-b486-4d3e-bb90-a15111bee8a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -41,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="Searching.h">
       <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="interview\C++11_Ptr.h">
+      <Filter>interview</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +88,12 @@
     </ClCompile>
     <ClCompile Include="SearchTest.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="interview\C++11_Ptr.cpp">
+      <Filter>interview</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

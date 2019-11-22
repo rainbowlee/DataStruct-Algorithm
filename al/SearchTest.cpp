@@ -1,6 +1,7 @@
 #include "Searching.h"
 #include "Test.h"
 #include <assert.h> 
+#include <iostream>
 
 //循环有序二分查找
 void TestBinarySearch1()
@@ -57,6 +58,8 @@ void TestBinarySearch1()
 
 	res = Search::SearchBinaryXunHuanYouXu(datas,1212);
 	assert(res == 0);
+
+	std::cout << ( 2 > 1 ) ? 2 : 1;
 }
 
 

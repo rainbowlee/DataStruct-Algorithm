@@ -540,6 +540,26 @@ public:
 
 		return str;
 	}
+
+
+	static Node* Revert2(Node* pNode)
+	{
+		if(pNode == nullptr)
+			return nullptr;
+
+		Node* preNode = pNode;
+		Node* curNode = pNode->mNext;
+		pNode->mNext = nullptr;
+		if(curNode != nullptr)
+		{
+			Node* nextNode = curNode->mNext;
+			curNode->mNext = preNode;
+			preNode = curNode;
+			curNode = nextNode;		
+		}
+
+		return preNode;
+	}
 };
 #endif
 
