@@ -16,6 +16,9 @@
     <Filter Include="interview">
       <UniqueIdentifier>{34a78440-b486-4d3e-bb90-a15111bee8a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="stl">
+      <UniqueIdentifier>{efeed75a-59df-43b1-9ba7-38b9f0e1ee4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -47,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="interview\C++11_Ptr.h">
       <Filter>interview</Filter>
+    </ClInclude>
+    <ClInclude Include="stl\TestStl.h">
+      <Filter>stl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +100,9 @@
     </ClCompile>
     <ClCompile Include="interview\C++11_Ptr.cpp">
       <Filter>interview</Filter>
+    </ClCompile>
+    <ClCompile Include="stl\TestStl.cpp">
+      <Filter>stl</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
